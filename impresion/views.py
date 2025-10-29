@@ -81,8 +81,8 @@ def crearImagenIngredientesADG(referencia, ingredientes):
     texto_ingredientes = format_ingredients(ingredientes, max_length=40)
 
     # === CARGAR IMAGEN BASE ===
-    file_path = os.path.join(current_directory, f'adg.png')
-    image = Image.open(file_path).convert("RGB")
+    
+    image = Image.open("adg.png").convert("RGB")
     draw = ImageDraw.Draw(image)
 
     # === TEXTO COMPLETO ===
