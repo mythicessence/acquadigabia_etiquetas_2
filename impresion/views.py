@@ -72,7 +72,8 @@ def crearImagenIngredientesADG(referencia, ingredientes):
     # === CONFIGURACIÓN ===
     current_directory = os.path.dirname(os.path.abspath(__file__))
     file_path = os.path.join(current_directory, f'adg.png')
-    font_path = os.path.join(current_directory, f'Roboto-Light.ttf')
+    file_path = os.path.join(settings.BASE_DIR, "impresion", "adg.png")
+    font_path = os.path.join(settings.BASE_DIR, "impresion", 'Roboto-Light.ttf')
     
     font_size = 28
     font = ImageFont.truetype(font_path, font_size)
