@@ -108,9 +108,52 @@ def crearImagenIngredientesADG(referencia, ingredientes):
     )
 
 
-def imprimirIngredientes(valor):
-    # Aquí pondrás tu lógica real más adelante
-    print(f"🖨️ Imprimiendo ingredientes para: {valor}")
+def imprimirIngredientes(request):
+    resultado = None
+
+    if request.method == "POST":
+        ref_form = request.POST.get("referencia", "").strip().upper()
+
+        # Ruta al CSV dentro de la app
+        csv_path = os.path.join(settings.BASE_DIR, "impresion", "ingredientes.tsv")
+
+        if not os.path.exists(csv_path):
+            resultado = "⚠️ No se encontró el archivo ingredientes.csv"
+        else:
+            registros = []
+
+            # Leer el CSV (por posición de columnas)
+            with open(csv_path, newline='', encoding='utf-8') as f:
+                reader = csv.reader(f, delimiter='\t')
+                next(reader, None)  # saltar la cabecera
+
+                for fila in reader:
+                    # Evitar filas vacías o incompletas
+                    if len(fila) < 4:
+                        continue
+
+                    registro = {
+                        "REFERENCIA": fila[0].strip().upper(),
+                        "NOMBRE": fila[1].strip(),
+                        "CONCENTRACION": fila[2].strip(),
+                        "INGREDIENTES": fila[3].strip(),
+                    }
+                    registros.append(registro)
+
+            # Buscar por referencia
+            encontrado = next((r for r in registros if r["REFERENCIA"] == ref_form), None)
+
+            if encontrado:
+                imprimirEtiquetaIngredientes(ref_form, encontrado['INGREDIENTES'])
+                resultado = (
+                    f"IMPRESION ENVIADA {ref_form}:"
+                    f"{encontrado['INGREDIENTES']}"
+                )
+            else:
+                resultado = f"❌ No se encontró la referencia '{ref_form}' en el archivo."
+
+    return render(request, "index.html", {"resultado": resultado})
+
 
 
 @csrf_exempt

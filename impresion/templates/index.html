@@ -1,43 +1,95 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>Imprimir Ingredientes</title>
-<style>
-body {
-    background-color: #121212;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    font-family: sans-serif;
-}
-form {
-    background: #1e1e1e;
-    padding: 30px;
-    border-radius: 15px;
-    text-align: center;
-}
-input, button {
-    padding: 10px;
-    border-radius: 8px;
-    border: none;
-    margin: 5px;
-}
-button {
-    background: #747474;
-    color: white;
-    cursor: pointer;
-}
-</style>
+  <meta charset="UTF-8">
+  <title>Imprimir Ingredientes</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background-color: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      color: #fff;
+    }
+
+    .form-container {
+      background-color: #1c1c1c;
+      padding: 40px 50px;
+      border-radius: 15px;
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.08);
+      text-align: center;
+      width: 320px;
+    }
+
+    h2 {
+      margin-bottom: 25px;
+      font-weight: normal;
+      color: #fff;
+      letter-spacing: 1px;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 8px;
+      border: none;
+      background-color: #2a2a2a;
+      color: #fff;
+      font-size: 15px;
+      margin-bottom: 20px;
+      outline: none;
+      transition: background 0.2s, box-shadow 0.2s;
+    }
+
+    input[type="text"]:focus {
+      background-color: #333;
+      box-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+    }
+
+    button {
+      background-color: #444;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 15px;
+      transition: background-color 0.3s, transform 0.1s;
+    }
+
+    button:hover {
+      background-color: #555;
+    }
+
+    button:active {
+      transform: scale(0.97);
+    }
+
+    .resultado {
+      margin-top: 20px;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 10px;
+      border-radius: 8px;
+      color: #ddd;
+      font-size: 14px;
+    }
+  </style>
 </head>
 <body>
+  <div class="form-container">
+    <h2>Imprimir Ingredientes</h2>
     <form method="post">
-        {% csrf_token %}
-        <h2>Imprimir Ingredientes</h2>
-        <input type="text" name="referencia" placeholder="Referencia">
-        <button type="submit">Imprimir</button>
+      {% csrf_token %}
+      <input type="text" name="referencia" placeholder="EJEMPLO MSS 200" required>
+      <button type="submit">IMPRIMIR</button>
     </form>
+
+    {% if resultado %}
+      <div class="resultado">{{ resultado }}</div>
+    {% endif %}
+  </div>
 </body>
 </html>
