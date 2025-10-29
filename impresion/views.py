@@ -108,6 +108,14 @@ def crearImagenIngredientesADG(referencia, ingredientes):
         spacing=4,       # espacio vertical entre líneas
     )
 
+    output_path = os.path.join(current_directory, f'ficheradg_outo2.bmp')
+    image.save(output_path)
+    return image
+
+
+
+
+
 @csrf_exempt
 def index(request):
     resultado = None
