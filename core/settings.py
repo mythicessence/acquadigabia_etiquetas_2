@@ -31,7 +31,8 @@ ALLOWED_HOSTS = ['*']
 CSRF_TRUSTED_ORIGINS = [
     'http://127.0.0.1:8000',
     'http://localhost',
-    'https://web-production-1d13.up.railway.app/',  # ← pon aquí la URL real de tu app en Railway
+    'https://web-production-1d13.up.railway.app',
+      # ← pon aquí la URL real de tu app en Railway
 ]
 
 
