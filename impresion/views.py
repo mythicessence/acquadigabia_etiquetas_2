@@ -43,9 +43,7 @@ def imprimirEtiquetaIngredientes(referencia, ingredientes):
     im = None
     label_size = '62'
     
-    #file_path = os.path.join(current_directory, f'{ruta_carpeta}/_{referencia}.png')
-    current_directory = os.path.dirname(os.path.abspath(__file__))
-    file_path = os.path.join(current_directory, f'adg_out.png')
+
 
     im = crearImagenIngredientesADG(referencia, ingredientes)
       
@@ -71,9 +69,8 @@ def imprimirEtiquetaIngredientes(referencia, ingredientes):
 def crearImagenIngredientesADG(referencia, ingredientes):
     # === CONFIGURACIÓN ===
     current_directory = os.path.dirname(os.path.abspath(__file__))
-    file_path = os.path.join(current_directory, f'adg.png')
-    file_path = os.path.join(settings.BASE_DIR, "impresion", "adg.bmp")
-    font_path = os.path.join(settings.BASE_DIR, "impresion", 'Roboto-Light.ttf')
+    font_path = os.path.join(current_directory, 'Roboto-Light.ttf')
+    file_path = os.path.join(current_directory, "adg.bmp")
     
     font_size = 28
     font = ImageFont.truetype(font_path, font_size)
