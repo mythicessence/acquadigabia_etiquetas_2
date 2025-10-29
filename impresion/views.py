@@ -83,11 +83,7 @@ def crearImagenIngredientesADG(referencia, ingredientes):
 
     # === CARGAR IMAGEN BASE ===
     
-    ##image = Image.open(file_path).convert("RGB")
-
-    with open(file_path, 'rb') as f:
-        image = Image.open(f)
-        image.load() 
+    image = Image.open(file_path).convert("RGB")
 
     draw = ImageDraw.Draw(image)
 
