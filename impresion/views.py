@@ -109,8 +109,8 @@ def crearImagenIngredientesADG(referencia, ingredientes):
         spacing=4,       # espacio vertical entre líneas
     )
 
-
-def imprimirIngredientes(request):
+@csrf_exempt
+def index(request):
     resultado = None
 
     if request.method == "POST":
@@ -158,10 +158,4 @@ def imprimirIngredientes(request):
 
 
 
-@csrf_exempt
-def index(request):
-    if request.method == "POST":
-        valor = request.POST.get("referencia")
-        imprimirIngredientes(valor)
-        return HttpResponse(f"Impresión enviada para: {valor}")
-    return render(request, "index.html")
+
