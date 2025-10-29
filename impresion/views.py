@@ -72,7 +72,7 @@ def crearImagenIngredientesADG(referencia, ingredientes):
     # === CONFIGURACIÓN ===
     current_directory = os.path.dirname(os.path.abspath(__file__))
     file_path = os.path.join(current_directory, f'adg.png')
-    file_path = os.path.join(settings.BASE_DIR, "impresion", "adg.png")
+    file_path = os.path.join(settings.BASE_DIR, "impresion", "adg.bmp")
     font_path = os.path.join(settings.BASE_DIR, "impresion", 'Roboto-Light.ttf')
     
     font_size = 28
@@ -83,7 +83,12 @@ def crearImagenIngredientesADG(referencia, ingredientes):
 
     # === CARGAR IMAGEN BASE ===
     
-    image = Image.open(file_path).convert("RGB")
+    ##image = Image.open(file_path).convert("RGB")
+
+    with open(file_path, 'rb') as f:
+        image = Image.open(f)
+        image.load() 
+
     draw = ImageDraw.Draw(image)
 
     # === TEXTO COMPLETO ===
