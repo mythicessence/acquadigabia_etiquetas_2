@@ -2,6 +2,6 @@ Django>=5.1,<6.0
 gunicorn
 dj-database-url
 psycopg2-binary
-pillow>=10.0.0
+pillow==9.5.0
 brother-ql
 whitenoise
