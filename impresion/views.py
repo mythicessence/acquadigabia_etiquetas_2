@@ -12,6 +12,8 @@ from brother_ql.backends import backend_factory
 from brother_ql.backends.helpers import discover
 import csv
 import os
+from django.views.decorators.csrf import csrf_exempt
+
 
 def format_ingredients(text, max_length=35):
     words = text.split()  # Separar por espacios sin depender de comas
@@ -110,6 +112,8 @@ def imprimirIngredientes(valor):
     # Aquí pondrás tu lógica real más adelante
     print(f"🖨️ Imprimiendo ingredientes para: {valor}")
 
+
+@csrf_exempt
 def index(request):
     if request.method == "POST":
         valor = request.POST.get("referencia")
