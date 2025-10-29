@@ -1,0 +1,48 @@
+# === Django ===
+*.pyc
+__pycache__/
+db.sqlite3
+*.log
+*.pot
+*.pyc
+*.pyo
+*.mo
+*.pot
+*.py~
+*.egg-info/
+media/
+staticfiles/
+
+# === Environments ===
+venv/
+.env
+*.env
+.env.*
+.envrc
+
+# === IDEs / Editors ===
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# === OS cruft ===
+desktop.ini
+
+# === Temporary & build ===
+*.bak
+*.swp
+*.swo
+*.tmp
+*.temp
+*.out
+*.old
+*.zip
+__MACOSX/
+build/
+dist/
+
+
+
+# === Node / npm (por si usas algo frontend) ===
+node_modules/

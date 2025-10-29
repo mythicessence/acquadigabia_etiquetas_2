@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Imprimir Ingredientes</title>
+<style>
+body {
+    background-color: #121212;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: sans-serif;
+}
+form {
+    background: #1e1e1e;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+}
+input, button {
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    margin: 5px;
+}
+button {
+    background: #4CAF50;
+    color: white;
+    cursor: pointer;
+}
+</style>
+</head>
+<body>
+    <form method="post">
+        {% csrf_token %}
+        <h2>Imprimir Ingredientes</h2>
+        <input type="text" name="referencia" placeholder="Referencia">
+        <button type="submit">Imprimir</button>
+    </form>
+</body>
+</html>
