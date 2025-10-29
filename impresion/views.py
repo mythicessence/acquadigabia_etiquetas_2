@@ -13,6 +13,8 @@ from brother_ql.backends.helpers import discover
 import csv
 import os
 from django.views.decorators.csrf import csrf_exempt
+from django.conf import settings
+
 
 
 def format_ingredients(text, max_length=35):
