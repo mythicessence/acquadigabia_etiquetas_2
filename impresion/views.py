@@ -41,7 +41,7 @@ def format_ingredients(text, max_length=35):
 def imprimirEtiquetaIngredientes(referencia, ingredientes):
     
     im = None
-    label_size = '62'
+    label_size = '50'
     
 
 
